@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf App | Submission Dicoding</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link ke File CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Script JavaScript dengan defer -->
+    <script src="main.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Bookshelf App</h1>
+            <p>Catat dan kelola semua bukumu dengan mudah</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Form Tambah & Edit Buku -->
+        <section class="form-card" id="inputBookSection">
+            <h2>Tambah Buku Baru</h2>
+            <form id="bookForm" data-testid="bookForm">
+                <div class="form-group">
+                    <label for="bookFormTitle">Judul</label>
+                    <input id="bookFormTitle" type="text" required data-testid="bookFormTitleInput" placeholder="Contoh: Laskar Pelangi">
+                </div>
+                <div class="form-group">
+                    <label for="bookFormAuthor">Penulis</label>
+                    <input id="bookFormAuthor" type="text" required data-testid="bookFormAuthorInput" placeholder="Contoh: Andrea Hirata">
+                </div>
+                <div class="form-group">
+                    <label for="bookFormYear">Tahun</label>
+                    <input id="bookFormYear" type="number" required data-testid="bookFormYearInput" placeholder="Contoh: 2005">
+                </div>
+                <div class="form-group-checkbox">
+                    <input id="bookFormIsComplete" type="checkbox" data-testid="bookFormIsCompleteCheckbox"/>
+                    <label for="bookFormIsComplete">Selesai dibaca</label>
+                </div>
+                <button id="bookFormSubmit" type="submit" data-testid="bookFormSubmitButton">
+                    Simpan Buku
+                </button>
+            </form>
+        </section>
+
+        <!-- Fitur Pencarian -->
+        <section class="search-card" id="searchBookSection">
+            <h2>Cari Buku</h2>
+            <form id="searchBook" data-testid="searchBookForm">
+                <input id="searchBookTitle" type="text" data-testid="searchBookFormTitleInput" placeholder="Ketik judul buku...">
+                <!-- Tombol yang hilang dan sekarang sudah ditambahkan kembali -->
+                <button id="searchSubmit" type="submit" data-testid="searchBookFormSubmitButton">Cari</button>
+            </form>
+        </section>
+
+        <!-- Rak Buku -->
+        <div class="bookshelf-container">
+            <!-- Rak Belum Selesai Dibaca -->
+            <section class="bookshelf" id="incompleteBookshelf">
+                <h2>Belum selesai dibaca</h2>
+                <div id="incompleteBookList" class="book-list" data-testid="incompleteBookList">
+                    <!-- Buku akan ditambahkan oleh JavaScript -->
+                </div>
+            </section>
+
+            <!-- Rak Selesai Dibaca -->
+            <section class="bookshelf" id="completeBookshelf">
+                <h2>Selesai dibaca</h2>
+                <div id="completeBookList" class="book-list" data-testid="completeBookList">
+                    <!-- Buku akan ditambahkan oleh JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal untuk Edit Buku -->
+    <div id="editBookModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Edit Data Buku</h2>
+            <form id="editBookForm">
+                <input type="hidden" id="editBookId">
+                <div class="form-group">
+                    <label for="editBookTitle">Judul</label>
+                    <input id="editBookTitle" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label for="editBookAuthor">Penulis</label>
+                    <input id="editBookAuthor" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label for="editBookYear">Tahun</label>
+                    <input id="editBookYear" type="number" required>
+                </div>
+                <button type="submit">Simpan Perubahan</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Notifikasi/Toast -->
+    <div id="toast" class="toast"></div>
+
+</body>
+</html>

@@ -1,0 +1,414 @@
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+/* --- CSS Variables for Theming --- */
+:root {
+    --primary-font: 'Poppins', sans-serif;
+    --heading-font: 'Playfair Display', serif;
+
+    /* Light Theme Palette - Blue */
+    --bg-color: #f4f7fc; /* A very light, clean blue background */
+    --surface-color: #ffffff; /* White for cards and surfaces */
+    --primary-accent-color: #3d5af1; /* A vibrant, modern blue */
+    --secondary-accent-color: #00bfa5; /* Teal for secondary actions */
+    --text-color: #333333; /* Dark gray for readable text */
+    --heading-color: #0d244f; /* A deep navy blue for headings */
+    --subtle-text-color: #6c757d; /* Lighter gray for less important text */
+    --border-color: #dee2e6; /* A subtle border color */
+    --shadow-color: rgba(0, 91, 234, 0.1); /* A soft blue shadow */
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --edit-color: #ffc107;
+}
+
+/* --- General Body & Reset Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--primary-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Header Styling --- */
+.header {
+    background: linear-gradient(135deg, var(--primary-accent-color), #657eff);
+    color: var(--surface-color);
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-family: var(--heading-font);
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* --- Main Container --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Card Styles (for Form, Search, Bookshelves) --- */
+.form-card,
+.search-card,
+.bookshelf {
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 30px var(--shadow-color);
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-card:hover,
+.search-card:hover,
+.bookshelf:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px var(--shadow-color);
+}
+
+h2 {
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+    color: var(--heading-color);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-accent-color);
+    text-align: center;
+}
+
+/* --- Form Elements Styling --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--subtle-text-color);
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+    color: #aab2bd;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-accent-color);
+    box-shadow: 0 0 8px rgba(61, 90, 241, 0.2);
+}
+
+.form-group-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.form-group-checkbox label {
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#bookFormIsComplete {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary-accent-color);
+}
+
+/* --- Button Styles --- */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#bookFormSubmit {
+    width: 100%;
+    background: var(--primary-accent-color);
+    color: white;
+    box-shadow: 0 4px 15px -5px var(--primary-accent-color);
+}
+
+#bookFormSubmit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px -5px var(--primary-accent-color);
+}
+
+/* --- Search Section (PERBAIKAN) --- */
+#searchBook {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#searchBookTitle {
+    flex-grow: 1; /* Membuat input mengambil sisa ruang */
+}
+
+#searchSubmit {
+    background-color: var(--primary-accent-color);
+    color: white;
+    flex-shrink: 0; /* Mencegah tombol menyusut */
+}
+
+#searchSubmit:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+
+/* --- Bookshelf Layout --- */
+.bookshelf-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.book-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.book-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid var(--secondary-accent-color);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: transform 0.2s ease;
+}
+
+.book-item:hover {
+    transform: scale(1.02);
+}
+
+#completeBookshelf .book-item {
+    border-left-color: var(--primary-accent-color);
+}
+
+.book-item h3 {
+    font-family: var(--heading-font);
+    font-size: 1.5rem;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+}
+
+.book-item p {
+    margin-bottom: 5px;
+    color: var(--subtle-text-color);
+}
+
+.action-buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.action-buttons button {
+    flex-grow: 1;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    color: white;
+}
+
+.is-complete-btn, .is-incomplete-btn {
+    background-color: var(--success-color);
+}
+
+.delete-btn {
+    background-color: var(--danger-color);
+}
+
+.edit-btn {
+    background-color: var(--edit-color);
+}
+
+.action-buttons button:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+/* --- Modal Styles --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(13, 36, 79, 0.4);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--surface-color);
+    margin: 10% auto;
+    padding: 40px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    position: relative;
+    animation: slide-down 0.5s ease-out;
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 32px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--primary-accent-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#editBookForm button[type="submit"] {
+    width: 100%;
+    margin-top: 10px;
+    background-color: var(--secondary-accent-color);
+    color: white;
+}
+#editBookForm button[type="submit"]:hover {
+    opacity: 0.9;
+}
+
+
+/* --- Toast Notification --- */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: var(--heading-color);
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1001;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0.5s, bottom 0.5s;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .bookshelf-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .form-card,
+    .search-card,
+    .bookshelf {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .header {
+        padding: 30px 15px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    button {
+        padding: 10px 18px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    #searchBook {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
